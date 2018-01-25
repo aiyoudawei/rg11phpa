@@ -1,0 +1,12 @@
+2018-01-25 02:56:06 PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) in D:\phpStudy\WWW\shixun3\diyizhou\aaaaa\sever.php:36
+Stack trace:
+#0 D:\phpStudy\WWW\shixun3\diyizhou\aaaaa\sever.php(36): PDO->__construct('mysql:host=127....', 'root', '131421')
+#1 [internal function]: user_message(Object(Workerman\Connection\TcpConnection), '8889')
+#2 D:\phpStudy\WWW\shixun3\diyizhou\aaaaa\workerman\Connection\TcpConnection.php(632): call_user_func('user_message', Object(Workerman\Connection\TcpConnection), '8889')
+#3 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #26)
+#4 D:\phpStudy\WWW\shixun3\diyizhou\aaaaa\workerman\Events\Select.php(286): call_user_func_array(Array, Array)
+#5 D:\phpStudy\WWW\shixun3\diyizhou\aaaaa\workerman\Worker.php(856): Workerman\Events\Select->loop()
+#6 D:\phpStudy\WWW\shixun3\diyizhou\aaaaa\workerman\Worker.php(473): Workerman\Worker->run()
+#7 D:\phpStudy\WWW\shixun3\diyizhou\aaaaa\workerman\Worker.php(382): Workerman\Worker::runAllWorkers()
+#8 D:\phpStudy\WWW\shixun3\diyizhou\aaaaa\sever.php(51): Workerman\Worker::runAll()
+#9 {main}

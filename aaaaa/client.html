@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<script src="jquery-3.2.1.js" charset="utf-8"></script>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            .box{
+                width: 1000px;
+                height: 500px;
+                border: 5px solid red;
+                overflow-y:auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+
+        </div>
+        <input type="text"  id="message" value="">
+        <input type="button" id="but" value="发送">
+    </body>
+</html>
+<script type="text/javascript">
+    ws = new WebSocket("ws://127.0.0.1:8080");
+    ws.onopen = function() {
+        console.log("连接成功");
+    };
+    $(document).on('click', '#but', function() {
+        var message = $('#message').val();
+        if (message) {
+            ws.send(message);
+            // console.log("给服务端发送"+message);
+        }else{alert('空的')};
+    })
+    ws.onmessage = function(e) {
+        var str = '<p>'+e.data+'</p>';
+        $('.box').append(str);
+    };
+</script>
